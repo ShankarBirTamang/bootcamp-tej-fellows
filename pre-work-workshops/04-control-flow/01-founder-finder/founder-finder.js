@@ -2,6 +2,8 @@ let name = 'David';
 // let name = 'Nimit';
 // let name = 'Someone else';
 
-let found;
-
+let found ;
 // YOUR CODE BELOW
+
+found = name === 'David'||'Nimit';
+

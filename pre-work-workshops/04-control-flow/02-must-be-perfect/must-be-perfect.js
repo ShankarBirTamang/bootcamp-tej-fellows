@@ -7,3 +7,5 @@ let word = 'carrots';
 let lastWord;
 
 // YOUR CODE BELOW
+
+lastWord = word[0]==='p'&& word.length===7 ? word.toUpperCase() : word;
