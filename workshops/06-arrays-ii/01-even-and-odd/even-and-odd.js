@@ -10,8 +10,8 @@ function evenAndOdd(array) {
     }
   }
 
-//   return [even, odd];
-// }
+  return [even, odd];
+}
 
 // Alternatively using filter (shortest way)
 
