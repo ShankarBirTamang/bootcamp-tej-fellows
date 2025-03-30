@@ -7,13 +7,13 @@ function rotateArray(originalArray, rotateNum) {
     return originalArray.slice();
   }
 
-  // Normalize rotateNum to handle both positive and negative rotations
+  //Handling both positive and negative rotations
   rotateNum = rotateNum % length;
   if (rotateNum < 0) {
     rotateNum += length;
   }
 
-  // Create a new array to hold the result
+  // New array to hold the result
   let resultArray = [];
 
   // Rotate the array
