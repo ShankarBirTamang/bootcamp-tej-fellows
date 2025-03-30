@@ -1,7 +1,7 @@
 // YOUR CODE BELOW
 // function oddCouple(arrNumbers) {
 //   let oddNumbers = [];
-//   oddNumbers = arrNumbers.filter((num) => num % 2 == 1);
+//   oddNumbers = arrNumbers.filter((num) => num % 2 === 1);
 
 //   return oddNumbers.slice(0, 2);
 // }
@@ -13,7 +13,7 @@ function oddCouple(arrNumbers) {
     let currentNum = arrNumbers[i];
     if (currentNum % 2) {
       oddNumbers.push(currentNum);
-      if (oddNumbers.length == 2) {
+      if (oddNumbers.length === 2) {
         return oddNumbers;
       }
     }
