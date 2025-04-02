@@ -28,7 +28,7 @@ let ticTacToe = {
     return this.board;
   },
 };
-ticTacToe.move("x", 0, 1);
+// ticTacToe.move("x", 0, 1);
 // ticTacToe.move("O", 0, 1);
 // ticTacToe.move("x", 1, 1);
 // ticTacToe.move("O", 2, 1);
