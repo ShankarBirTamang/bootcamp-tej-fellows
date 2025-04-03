@@ -11,13 +11,13 @@ array.
 
 ```javascript
 let dolly = {
-  name: 'Dolly',
-  species: 'sheep',
-  offspring: []
-}
+  name: "Dolly",
+  species: "sheep",
+  offspring: [],
+};
 
 let dollyClone = cloneMachine(dolly);
 
-console.log(dollyClone) // {name: 'DollyClone', species: 'sheep', offspring: []}
-console.log(dolly) // {name: 'Dolly', species: 'sheep', offspring: ['DollyClone']}
+console.log(dollyClone); // {name: 'DollyClone', species: 'sheep', offspring: []}
+console.log(dolly); // {name: 'Dolly', species: 'sheep', offspring: ['DollyClone']}
 ```
