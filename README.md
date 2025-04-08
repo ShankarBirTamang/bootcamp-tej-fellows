@@ -16,6 +16,8 @@ TestFirst JavaScript is a multi-part series that provides practice to intermedia
   the number of hours you plan to study each week. As you finish each course, update the Actual End Date column in the Curriculum Data sheet, without changing the Planned Start Date or Planned End Date columns. The spreadsheet will automatically update and provide revised completion estimates
   based on the dates you enter.
 
+---
+
 ## Suggested sample schedule
 
 | **Day** | **8-Hours Daily Plan**(2 Weeks)                 | **4-Hours Daily Plan**(1 Month)                 | **1-Day Weekly Plan**(4 Months)                 |
