@@ -95,3 +95,21 @@ let unsorted = [17, -43, 216, 3, -9, 27];
 console.log(sort(unsorted));
 unsorted = ["toad", "prune", "pretzel", "aardvark", "tuna", "weasel"];
 console.log(sort(unsorted));
+
+//Alternatively using bubble sort algorithm
+function bubbleSort(arr) {
+  const result = arr.slice();
+  let len = result.length;
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      if (result[j] > result[j + 1]) {
+        [result[j], result[j + 1]] = [result[j + 1], result[j]]; //swap
+      }
+    }
+  }
+  return result;
+}
+unsorted = [17, -43, 216, 3, -9, 27];
+console.log(bubbleSort(unsorted));
+unsorted = ["toad", "prune", "pretzel", "aardvark", "tuna", "weasel"];
+console.log(bubbleSort(unsorted));
