@@ -1,1 +1,22 @@
 /* eslint-disable no-unused-vars, no-prototype-builtins */
+function soup(phrase, bank) {
+  let words = phrase.split("");
+  let bankWords = bank.split("");
+  console.log(bankWords);
+
+  for (let char of words) {
+    let index = bankWords.indexOf(char);
+    console.log(index + " : " + char);
+
+    if (index === -1) return false; // char not found in bank
+    bankWords.splice(index, 1);
+  }
+  return true;
+}
+
+const phrase = "abb";
+const characterBank = "ab";
+
+console.log(soup(phrase, characterBank));
+console.log(soup("helloworld", "dlrowhlloeh")); // true
+console.log(soup("abcdefg", "abcd")); // false
