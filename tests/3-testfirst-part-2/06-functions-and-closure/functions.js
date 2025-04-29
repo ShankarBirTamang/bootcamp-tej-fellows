@@ -42,7 +42,7 @@ function once(func) {
   let result;
   return function () {
     if (!hasBeenCalled) {
-      result = func.apply(this, arguments);
+      result = func.apply(this, arguments); //checkpin
       hasBeenCalled = true;
       return result;
     }
