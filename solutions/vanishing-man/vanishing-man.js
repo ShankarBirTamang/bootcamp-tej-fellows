@@ -155,7 +155,7 @@ const simulateVanishingMan = (secretWord) => {
   ];
   const game = new VanishingMan(secretWord);
 
-  function playVanishingMan() {
+  function playVanishingMan() { 
     if (game.gameState !== 'playing') {
       return game.getGameStateMessage();
     } else {
