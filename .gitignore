@@ -1,5 +1,6 @@
 # installed packages (better: `npm install` / `bower install`)
 node_modules
+package-lock.json
 bower_components
 
 # OS-generated files
@@ -21,3 +22,4 @@ Thumbs.db
 # IDE files
 .idea
 .vscode
+
