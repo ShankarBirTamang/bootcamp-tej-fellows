@@ -12,6 +12,3 @@ function vowelsCount(str) {
     return counts;
   }, initialCount);
 }
-console.log(vowelsCount("Hello"));
-console.log(vowelsCount(""));
-console.log(vowelsCount("Hello World!"));
