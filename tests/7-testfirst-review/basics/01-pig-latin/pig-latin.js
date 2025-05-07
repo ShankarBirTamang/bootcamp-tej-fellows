@@ -7,8 +7,6 @@ function pigify(str) {
     .split(" ")
     .map((word) => {
       if (word.length === 0) return ""; // empty string
-      console.log("word:", word); //checkpoint
-
       let consonantCluster = "";
       let i = 0;
 
@@ -19,7 +17,6 @@ function pigify(str) {
         if (currChar === "q" && nextChar === "u") {
           consonantCluster += "qu";
           i += 2;
-          console.log("consonantCluster:", consonantCluster); //checkpoint
           break;
         }
         //check for consonant (not vowel)
@@ -41,14 +38,3 @@ function pigify(str) {
     })
     .join(" ");
 }
-
-console.log(pigify("queen"));
-console.log(pigify("apple"));
-console.log(pigify("banana"));
-console.log(pigify("cherry"));
-console.log(pigify("eat pie"));
-console.log(pigify("three"));
-console.log(pigify("school"));
-console.log(pigify("quiet"));
-console.log(pigify("square"));
-console.log(pigify("the quick brown fox"));
