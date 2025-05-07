@@ -49,33 +49,3 @@ class RPNCalculator {
     }
   }
 }
-try {
-  let rpnCalculatorInstance = new RPNCalculator();
-
-  rpnCalculatorInstance.push(2);
-  rpnCalculatorInstance.push(3);
-  console.log("After push 2, 3:", rpnCalculatorInstance.array);
-
-  console.log("Current value:", rpnCalculatorInstance.value());
-
-  rpnCalculatorInstance.plus();
-  console.log("After plus:", rpnCalculatorInstance.array);
-
-  rpnCalculatorInstance.push(2);
-  console.log("After push 2:", rpnCalculatorInstance.array);
-
-  rpnCalculatorInstance.push(3);
-  console.log("After push 3:", rpnCalculatorInstance.array);
-
-  rpnCalculatorInstance.times();
-  console.log("After times:", rpnCalculatorInstance.array);
-
-  rpnCalculatorInstance.minus();
-  console.log("After minus:", rpnCalculatorInstance.array);
-
-  // This will throw an error - let's catch it
-  console.log("Attempting divide on single value...");
-  rpnCalculatorInstance.divide();
-} catch (e) {
-  console.log("Calculator error:", e);
-}
