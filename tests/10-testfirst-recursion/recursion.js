@@ -40,6 +40,9 @@ function fib(n) {
   return fib(n - 1) + fib(n - 2);
 }
 
+function type(value) {
+  return Object.prototype.toString.call(value).slice(8, -1);
+}
 function stringify() {}
 
 function search() {}
