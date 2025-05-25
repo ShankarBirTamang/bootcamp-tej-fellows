@@ -5,17 +5,49 @@
     <meta charset="UTF-8">
     <title>Guessing Game</title>
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- the MAIN.CSS file is linked here -->
   </head>
 
   <body>
+    <div class="game-container">
+          <header class="game-header">
+            <h1>Guess the Number!</h1>
+            <p class="subtitle"> Can you guess the secret number between 1 and 100 ?</p>
+          </header>
+          <div class="game-controls">
+            <div class="input-group">
+              <input type="number" id="guess-input" min="1" max="100" placeholder="Enter your guess">
+              <button id="submit-guess" class="btn primary">Submit</button>
+            </div>
+            <div class="action-buttons">
+              <button id="hint-btn" class="btn secondary">Get Hint</button>
+              <button id="new-game-btn" class="btn secondary">New Game</button>
+              <button id="settings-btn" class="btn tertiary">Settings</button>
+            </div>
+          </div>
+          <div class="game-feedback">
+            <div class="guess-history">
+              <div class="guess-history-header">
+                <h3>Your Guesses: </h3>
+                 <span id="remaining-guesses" class="remaining-guesses">5 guesses remaining</span>
+              </div>
+              <ul id="guess-list" class="guess-list">
+                <li class="guess-item">
+                  <span class="guess-number"></span>
+                  <span class="guess-number"></span>
+                  <span class="guess-number"></span>
+                  <span class="guess-number"></span>
+                  <span class="guess-number"></span>
+                </li>
+              </ul>
+            </div>
+            <div id="message" class="message-box"></div>
+          </div>    </div>
 
 
 
-
-
-    <!-- <script src='js/guessing-game.js'></script> -->
-    <!-- uncomment the script tag above when you are ready to add JavaScript to your document -->
+    <script src='js/guessing-game.js'></script>
   </body>
 
 </html>
