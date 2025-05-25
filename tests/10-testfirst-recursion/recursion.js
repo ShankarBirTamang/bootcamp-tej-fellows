@@ -85,4 +85,27 @@ function search(matchFn) {
   return false;
 }
 
-function recursiveMap() {}
+function recursiveMap(arr, callback) {
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if (Array.isArray(element)) {
+      result = result.concat(recursiveMap(element, callback));
+    } else {
+      result.push(callback(element));
+    }
+  }
+  return result;
+}
+
+//Alternatively
+function recursiveMap(arr, callback) {
+  if (arr.length === 0) return [];
+
+  const [first, ...rest] = arr;
+  if (Array.isArray(first)) {
+    return recursiveMap(first, callback).concat(recursiveMap(rest, callback));
+  }
+  return [callback(first)].concat(recursiveMap(rest, callback));
+}
