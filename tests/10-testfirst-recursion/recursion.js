@@ -43,7 +43,29 @@ function fib(n) {
 function type(value) {
   return Object.prototype.toString.call(value).slice(8, -1);
 }
-function stringify() {}
+
+function stringify(value) {
+  const valueType = type(value);
+  if (valueType === "Undefined") return "undefined";
+  if (valueType === "Null") return "null";
+  if (valueType === "Number") return value.toString();
+  if (valueType === "String") return `"${value}"`;
+  if (valueType === "Boolean") return value.toString();
+
+  //Handle arrays
+  if (valueType === "Array") {
+    const elements = value.map((element) => stringify(element));
+    return `[${elements.join(",")}]`;
+  }
+
+  //Handle objects
+  if (valueType === "Object") {
+    const properties = Object.keys(value).map((key) => {
+      return `"${key}":${stringify(value[key])}`;
+    });
+    return `{${properties.join(",")}}`; //return object string
+  }
+}
 
 function search() {}
 
