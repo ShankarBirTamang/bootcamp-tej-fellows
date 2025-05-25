@@ -21,7 +21,12 @@ function sumTheDigits(array) {
   else return array[0] + sumTheDigits(array.slice(1));
 }
 
-function countTheVowels() {}
+function countTheVowels(str) {
+  if (str.length === 0) return 0;
+  const firstChar = str[0].toLowerCase();
+  const isVowel = ["a", "e", "i", "o", "u"].includes(firstChar);
+  return (isVowel ? 1 : 0) + countTheVowels(str.slice(1)); //Recursive case
+}
 
 function recSmallestInt() {}
 
