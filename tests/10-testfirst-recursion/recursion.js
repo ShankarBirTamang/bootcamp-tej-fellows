@@ -16,7 +16,10 @@ function factorial(num) {
   else return num * factorial(num - 1); //Recursive case
 }
 
-function sumTheDigits() {}
+function sumTheDigits(array) {
+  if (array.length === 0) return 0;
+  else return array[0] + sumTheDigits(array.slice(1));
+}
 
 function countTheVowels() {}
 
