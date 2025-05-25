@@ -67,6 +67,22 @@ function stringify(value) {
   }
 }
 
-function search() {}
+function search(matchFn) {
+  const arr = this;
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+
+    //If element is an array , search recursively
+    if (Array.isArray(element)) {
+      if (search.call(element, matchFn)) return true;
+    }
+    //check if current element matches
+    else if (matchFn(element)) {
+      return true;
+    }
+  }
+  return false;
+}
 
 function recursiveMap() {}
