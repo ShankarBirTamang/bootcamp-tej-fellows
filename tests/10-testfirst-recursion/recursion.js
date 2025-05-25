@@ -28,7 +28,12 @@ function countTheVowels(str) {
   return (isVowel ? 1 : 0) + countTheVowels(str.slice(1)); //Recursive case
 }
 
-function recSmallestInt() {}
+function recSmallestInt(array) {
+  if (array.length === 1) return array[0];
+  const firstChar = array[0];
+  const smallestOfRest = recSmallestInt(array.slice(1)); //recursive call
+  return firstChar < smallestOfRest ? firstChar : smallestOfRest;
+}
 
 function fib() {}
 
