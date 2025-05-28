@@ -16,3 +16,15 @@ class Student {
     return sum / this.grades.length;
   }
 }
+
+class Alumni extends Student {
+  constructor(name, email, year) {
+    super(name); // call the constructor of the parent class
+    this.email = email;
+    this.year = year;
+  }
+
+  getGraduationYear() {
+    return this.year;
+  }
+}
