@@ -1,16 +1,6 @@
 let score = 0;
 const scoreDisplay = document.getElementById("score");
 
-const gameArea = document.querySelector("#whack-a-mole");
-
-// gameArea.addEventListener("click", (clickEvent) => {
-//   if (clickEvent.target.tagName === "DIV") {
-//     const hole = clickEvent.target;
-//     hole.classList.toggle("mole");
-//     console.log("hole here");
-//   }
-// });
-
 const holes = document.querySelectorAll(".hole");
 
 setInterval(function () {
