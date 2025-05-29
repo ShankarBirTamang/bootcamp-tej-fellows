@@ -10,17 +10,17 @@
     - mouseover: do the action
     - mouseup: removeEventListener
 */
-let mySelect = document.getElementsByTagName('select')[0]
-let myFirstOption = document.createElement('option')
-myFirstOption.innerText = 'blueButton'
-myFirstOption.value = 'blue'
-mySelect.appendChild(myFirstOption)
+let mySelect = document.getElementsByTagName("select")[0];
+let myFirstOption = document.createElement("option");
+myFirstOption.innerText = "blueButton";
+myFirstOption.value = "blue";
+mySelect.appendChild(myFirstOption);
 
-let mySecondOption = document.createElement('option')
-mySecondOption.innerText = 'redButton'
-mySecondOption.value = 'red'
-mySelect.appendChild(mySecondOption)
+let mySecondOption = document.createElement("option");
+mySecondOption.innerText = "redButton";
+mySecondOption.value = "red";
+mySelect.appendChild(mySecondOption);
 
-mySelect.addEventListener("change", function(sharmila){
-    console.dir(sharmila.target.value)
-})
+mySelect.addEventListener("change", function (sankar) {
+  console.log(sankar.target.value);
+});
