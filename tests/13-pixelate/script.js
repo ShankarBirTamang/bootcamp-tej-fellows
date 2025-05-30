@@ -92,13 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
     isPainting = false;
   });
 
-  //Remove all rows and columns
-  //   document.getElementById("clear-all").addEventListener("click", function () {
-  //     while (canvas.firstChild) {
-  //       canvas.removeChild(canvas.firstChild);
-  //     }
-  //   });
-
   //Erase all colored pixels
   document.getElementById("clear-all").addEventListener("click", function () {
     const allPixels = canvas.querySelectorAll("#pixel-canvas .pixel");
@@ -106,4 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
       pixel.style.backgroundColor = "#ffffff"; //reset color to white
     });
   });
+
+  //Remove all rows and columns
+  //   document.getElementById("clear-all").addEventListener("click", function () {
+  //     while (canvas.firstChild) {
+  //       canvas.removeChild(canvas.firstChild);
+  //     }
+  //   });
 });
