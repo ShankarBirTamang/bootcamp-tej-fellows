@@ -21,7 +21,7 @@ mySecondOption.innerText = "redButton";
 mySecondOption.value = "red";
 mySelect.appendChild(mySecondOption);
 
-console.log(mySelect);
+console.dir(mySelect);
 
 mySelect.addEventListener("change", function (sankar) {
   console.log(sankar.target.value);
