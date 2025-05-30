@@ -58,13 +58,13 @@ button:hover,select:hover {
 }
 
 .pixel {
-  height: 30px;
-  width: 30px;
+  height: 15px;
+  width: 15px;
   border : 1px solid #000;
   background-color: #ffffff;
   cursor: pointer;
   transition: background-color 0.1s;
 }
 .pixel:hover {
-  opacity: 0.8;
+  opacity: 0.6;
 }

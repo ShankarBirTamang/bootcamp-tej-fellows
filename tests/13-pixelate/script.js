@@ -10,19 +10,100 @@
     - mouseover: do the action
     - mouseup: removeEventListener
 */
-let mySelect = document.getElementsByTagName("select")[0];
-let myFirstOption = document.createElement("option");
-myFirstOption.innerText = "blueButton";
-myFirstOption.value = "blue";
-mySelect.appendChild(myFirstOption);
 
-let mySecondOption = document.createElement("option");
-mySecondOption.innerText = "redButton";
-mySecondOption.value = "red";
-mySelect.appendChild(mySecondOption);
+document.addEventListener("DOMContentLoaded", function () {
+  const canvas = document.getElementById("pixel-canvas");
+  const colorPicker = document.getElementById("color-picker");
+  let selectedColor = colorPicker.value;
+  let isPainting = false;
 
-console.dir(mySelect);
+  //Update selected color when changed
+  colorPicker.addEventListener("change", function () {
+    selectedColor = this.value;
+  });
 
-mySelect.addEventListener("change", function (sankar) {
-  console.log(sankar.target.value);
+  //Add row button
+  const addRowButton = document.getElementById("add-row");
+  addRowButton.addEventListener("click", function () {
+    const newRow = document.createElement("tr");
+    const colCount = canvas.rows.length > 0 ? canvas.rows[0].cells.length : 1;
+
+    for (let i = 0; i < colCount; i++) {
+      const newCell = document.createElement("td");
+      newCell.className = "pixel";
+      newCell.style.width = "15px";
+      newCell.style.height = "15px";
+      newCell.style.backgroundColor = "#ffffff";
+      newRow.appendChild(newCell);
+    }
+    canvas.appendChild(newRow);
+  });
+
+  //Add column button
+  const addColumnButton = document.getElementById("add-col");
+  addColumnButton.addEventListener("click", function () {
+    const rows = canvas.rows;
+
+    if (rows.length === 0) {
+      const newRow = document.createElement("tr");
+      const newCell = document.createElement("td");
+      newCell.className = "pixel";
+      newCell.style.width = "15px";
+      newCell.style.height = "15px";
+      newCell.style.backgroundColor = "#ffffff";
+      newRow.appendChild(newCell);
+      canvas.appendChild(newRow);
+    } else {
+      for (let row of rows) {
+        const newCell = document.createElement("td");
+        newCell.className = "pixel";
+        newCell.style.width = "15px";
+        newCell.style.height = "15px";
+        newCell.style.backgroundColor = "#ffffff";
+        row.appendChild(newCell);
+      }
+    }
+  });
+
+  //function to handle painting
+  const paintPixel = (pixel) => {
+    pixel.style.backgroundColor = selectedColor;
+  };
+
+  //mouse down : setup event listener for all table
+  canvas.addEventListener("mousedown", function (e) {
+    if (e.target.classList.contains("pixel")) {
+      isPainting = true;
+      paintPixel(e.target);
+      e.preventDefault(); // prevent default behaviour (text selection)
+    }
+  });
+
+  //mouse over : do the action
+  canvas.addEventListener("mouseover", function (e) {
+    if (isPainting && e.target.classList.contains("pixel")) {
+      paintPixel(e.target);
+      e.preventDefault();
+    }
+  });
+
+  //mouse up : remove Event Listener
+  canvas.addEventListener("mouseup", function () {
+    isPainting = false;
+  });
+
+  //Remove all rows and columns
+  //   document.getElementById("clear-all").addEventListener("click", function () {
+  //     while (canvas.firstChild) {
+  //       canvas.removeChild(canvas.firstChild);
+  //     }
+  //   });
+
+  //Erase all colored pixels
+  document.getElementById("clear-all").addEventListener("click", function () {
+    const allPixels = canvas.querySelectorAll("#pixel-canvas .pixel");
+    allPixels.forEach((pixel) => {
+      pixel.style.backgroundColor = "#ffffff"; //reset color to white
+    });
+  });
 });
