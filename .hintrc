@@ -9,6 +9,12 @@
       {
         "select-name": "off"
       }
+    ],
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
     ]
   }
 }

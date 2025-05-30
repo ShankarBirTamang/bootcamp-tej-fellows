@@ -25,7 +25,46 @@ h1 {
   padding : 20px;
   background-color: #131313;
   border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(83, 82, 82, 0.1);
   margin: 20px auto;
-  box-shadow: 0 2px 5px rgba(83, 82, 82, 0.1);;
- 
+  
+}
+
+.controls {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #131313;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(83, 82, 82, 0.1);
+}
+
+button, select {
+  font-size: 13px;
+  padding : 8px 15px;
+  background-color: rgb(160, 194, 224);
+  margin : 0 5px;
+  border : 1px solid #8da9fb;
+  border-radius: 4px;
+}
+button:hover,select:hover {
+  background-color: #b1dec7;
+}
+
+#pixel-canvas {
+  margin : 20px auto;
+  border-collapse: collapse;
+  background-color: #c5c5c5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pixel {
+  height: 30px;
+  width: 30px;
+  border : 1px solid #000;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+.pixel:hover {
+  opacity: 0.8;
 }
