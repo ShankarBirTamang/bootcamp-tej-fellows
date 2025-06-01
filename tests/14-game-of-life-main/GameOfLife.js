@@ -4,6 +4,8 @@ class GameOfLife {
     this.height = height;
     this.board = this.makeBoard();
     this.generation = 0;
+    this.prevBoard = null;
+    this.stable = false;
   }
 
   /**
@@ -76,15 +78,31 @@ class GameOfLife {
   }
 
   tick() {
+    //store current board as prev before updating
+    this.prevBoard = this.board.map((row) => [...row]);
     const newBoard = this.makeBoard();
 
     this.forEachCell((row, col, cell) => {
       const neighbors = this.livingNeighbors(row, col);
       newBoard[row][col] = this.conwayRule(cell, neighbors);
     });
+    this.stable = this.boardsEqual(this.prevBoard, newBoard); //check if board is stable
     this.board = newBoard;
-    this.generation++;
+    if (!this.stable) {
+      this.generation++;
+    }
     return this.generation;
+  }
+
+  boardsEqual(board1, board2) {
+    for (let row = 0; row < this.height; row++) {
+      for (let col = 0; col < this.width; col++) {
+        if (board1[row][col] !== board2[row][col]) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
   randomize() {

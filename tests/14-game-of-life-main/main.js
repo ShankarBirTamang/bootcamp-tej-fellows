@@ -66,6 +66,13 @@ playBtn.addEventListener("click", (event) => {
     interval = setInterval(() => {
       gol.tick();
       paint();
+      if (gol.stable) {
+        clearInterval(interval);
+        interval = null;
+        playBtn.style.display = "inline-block";
+        pauseBtn.style.display = "none";
+        alert("Simulation has stabilized at generation: " + gol.generation);
+      }
     }, 1000 - speedControl.value);
     playBtn.style.display = "none";
     pauseBtn.style.display = "inline-block";
@@ -93,5 +100,22 @@ randomizeBtn.addEventListener("click", (event) => {
 });
 
 clearBtn.addEventListener("click", (event) => {
-  // TODO: Clear the board and paint
+  if (interval) {
+    clearInterval(interval);
+    interval = null;
+    playBtn.style.display = "inline-block";
+    pauseBtn.style.display = "none";
+  }
+  gol.clear();
+  paint();
+});
+
+speedControl.addEventListener("input", (event) => {
+  if (interval) {
+    clearInterval(interval);
+    interval = setInterval(() => {
+      gol.tick();
+      paint();
+    }, 1000 - speedControl.value);
+  }
 });
