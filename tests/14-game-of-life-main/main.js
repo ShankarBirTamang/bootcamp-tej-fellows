@@ -1,12 +1,11 @@
-const width = 25;
-const height = 20; // width and height dimensions of the board
+const width = 40;
+const height = 20; // wid4th and height dimensions of the board
 
 /**
  * Create a Game of Life instance
  */
 
 const gol = new GameOfLife(width, height);
-
 
 /**
  * create a table and append to the DOM
@@ -35,7 +34,6 @@ for (let h = 0; h < height; h++) {
 }
 document.getElementById("board").append(table);
 
-
 /**
  * Draws every cell from the gol instance into an actual, visible DOM element
  */
@@ -53,32 +51,31 @@ const paint = () => {
   // HINT:
   //   https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
   //   https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName
-}
-
+};
 
 /**
  * Event Listeners
  */
 
-document.getElementById("board").addEventListener("click", event => {
+document.getElementById("board").addEventListener("click", (event) => {
   // TODO: Toggle clicked cell (event.target) and paint
 });
 
-document.getElementById("step_btn").addEventListener("click", event => {
+document.getElementById("step_btn").addEventListener("click", (event) => {
   // TODO: Do one gol tick and paint
 });
 
-document.getElementById("play_btn").addEventListener("click", event => {
+document.getElementById("play_btn").addEventListener("click", (event) => {
   // TODO: Start playing by calling `tick` and paint
   // repeatedly every fixed time interval.
   // HINT:
   // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
 });
 
-document.getElementById("random_btn").addEventListener("click", event => {
+document.getElementById("random_btn").addEventListener("click", (event) => {
   // TODO: Randomize the board and paint
 });
 
-document.getElementById("clear_btn").addEventListener("click", event => {
+document.getElementById("clear_btn").addEventListener("click", (event) => {
   // TODO: Clear the board and paint
 });
