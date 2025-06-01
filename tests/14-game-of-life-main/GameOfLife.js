@@ -11,7 +11,7 @@ class GameOfLife {
 
   makeBoard() {
     return Array.from({ length: this.height }, () =>
-      Array.from({ length: this.width }, () => 0)
+      new Array(this.width).fill(0)
     );
   }
 
