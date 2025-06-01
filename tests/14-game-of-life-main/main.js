@@ -1,11 +1,15 @@
+//constants
 const width = 40;
-const height = 20; // wid4th and height dimensions of the board
+const height = 20; // width and height dimensions of the board
+const gol = new GameOfLife(width, height); //instance of Game of life
 
-/**
- * Create a Game of Life instance
- */
-
-const gol = new GameOfLife(width, height);
+//DOM Elements
+const boardElement = document.getElementById("board");
+const step_btn = document.getElementById("step_btn");
+const play_btn = document.getElementById("play_btn");
+const pause_btn = document.getElementById("pause_btn");
+const reset_btn = document.getElementById("random_btn");
+const clearBtn = document.getElementById("clear_btn");
 
 /**
  * create a table and append to the DOM
