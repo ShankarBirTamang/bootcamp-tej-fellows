@@ -3,6 +3,7 @@ class GameOfLife {
     this.width = width;
     this.height = height;
     this.board = this.makeBoard();
+    this.generation = 0;
   }
 
   /**
@@ -82,5 +83,21 @@ class GameOfLife {
       newBoard[row][col] = this.conwayRule(cell, neighbors);
     });
     this.board = newBoard;
+    this.generation++;
+    return this.generation;
+  }
+
+  randomize() {
+    this.forEachCell((row, col) => {
+      this.setCell(Math.random() > 0.85 ? 1 : 0, row, col);
+    });
+    this.generation = 0;
+  }
+
+  clear() {
+    this.forEachCell((row, col) => {
+      this.setCell(0, row, col);
+    });
+    this.generation = 0;
   }
 }
