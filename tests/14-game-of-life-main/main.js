@@ -5,81 +5,93 @@ const gol = new GameOfLife(width, height); //instance of Game of life
 
 //DOM Elements
 const boardElement = document.getElementById("board");
-const step_btn = document.getElementById("step_btn");
-const play_btn = document.getElementById("play_btn");
-const pause_btn = document.getElementById("pause_btn");
-const reset_btn = document.getElementById("random_btn");
+const stepBtn = document.getElementById("step_btn");
+const playBtn = document.getElementById("play_btn");
+const pauseBtn = document.getElementById("pause_btn");
+const randomizeBtn = document.getElementById("random_btn");
 const clearBtn = document.getElementById("clear_btn");
+const speedControl = document.getElementById("speed");
+const generationElement = document.getElementById("generation");
 
-/**
- * create a table and append to the DOM
- */
+// Create Board UI
+const cells = [];
 
-// Actual table cells
-const tds = [];
-
-// <table> element
 const table = document.createElement("tbody");
-// build a table row <tr>
 for (let h = 0; h < height; h++) {
   const tr = document.createElement("tr");
-  // build a table column <td>
   for (let w = 0; w < width; w++) {
     const td = document.createElement("td");
-    // We'll put the coordinates on the cell
-    // Element itself (using dataset),
-    // letting us fetch it in a click listener later.
     td.dataset.row = h;
     td.dataset.col = w;
-    tds.push(td);
+    cells.push(td);
     tr.append(td);
   }
   table.append(tr);
 }
-document.getElementById("board").append(table);
+boardElement.append(table);
 
-/**
- * Draws every cell from the gol instance into an actual, visible DOM element
- */
-
+// Paint the board
 const paint = () => {
-  // TODO:
-  //   1. For each <td> in the table:
-  //     a. If its corresponding cell in gol instance is alive,
-  //        give the <td> the `alive` CSS class.
-  //     b. Otherwise, remove the `alive` class.
-  //
-  // To find all the <td>s in the table, you might query the DOM for them, or you
-  // could choose to collect them when we create them in createTable.
-  //
-  // HINT:
-  //   https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
-  //   https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName
+  cells.forEach((td) => {
+    const row = parseInt(td.dataset.row);
+    const col = parseInt(td.dataset.col);
+    const cellValue = gol.getCell(row, col);
+    td.classList.toggle("alive", cellValue === 1);
+  });
+  generationElement.textContent = gol.generation;
 };
 
 /**
  * Event Listeners
  */
 
-document.getElementById("board").addEventListener("click", (event) => {
-  // TODO: Toggle clicked cell (event.target) and paint
+boardElement.addEventListener("click", (event) => {
+  if (event.target.tagName === "TD") {
+    gol.toggleCell(
+      parseInt(event.target.dataset.row),
+      parseInt(event.target.dataset.col)
+    );
+    paint();
+  }
 });
 
-document.getElementById("step_btn").addEventListener("click", (event) => {
-  // TODO: Do one gol tick and paint
+stepBtn.addEventListener("click", (event) => {
+  gol.tick();
+  paint();
 });
 
-document.getElementById("play_btn").addEventListener("click", (event) => {
-  // TODO: Start playing by calling `tick` and paint
-  // repeatedly every fixed time interval.
-  // HINT:
-  // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
+let interval = null;
+playBtn.addEventListener("click", (event) => {
+  if (!interval) {
+    interval = setInterval(() => {
+      gol.tick();
+      paint();
+    }, 1000 - speedControl.value);
+    playBtn.style.display = "none";
+    pauseBtn.style.display = "inline-block";
+  }
 });
 
-document.getElementById("random_btn").addEventListener("click", (event) => {
-  // TODO: Randomize the board and paint
+pauseBtn.addEventListener("click", (event) => {
+  if (interval) {
+    clearInterval(interval);
+    interval = null;
+    playBtn.style.display = "inline-block";
+    pauseBtn.style.display = "none";
+  }
 });
 
-document.getElementById("clear_btn").addEventListener("click", (event) => {
+randomizeBtn.addEventListener("click", (event) => {
+  if (interval) {
+    clearInterval(interval);
+    interval = null;
+    playBtn.style.display = "inline-block";
+    pauseBtn.style.display = "none";
+  }
+  gol.randomize();
+  paint();
+});
+
+clearBtn.addEventListener("click", (event) => {
   // TODO: Clear the board and paint
 });
