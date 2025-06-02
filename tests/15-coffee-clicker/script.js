@@ -38,7 +38,6 @@ function makeDisplayNameFromId(id) {
     .join(" ");
 }
 
-// You shouldn't need to edit this function-- its tests should pass once you've written makeDisplayNameFromId
 function makeProducerDiv(producer) {
   const containerDiv = document.createElement("div");
   containerDiv.className = "producer";
