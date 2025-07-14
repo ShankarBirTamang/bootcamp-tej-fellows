@@ -16,7 +16,11 @@ const bookPrototype = {
   getRating: function () {
     if (this.rating.length === 0) return 0;
     //converting each star into number
-    const total = this.rating.reduce((sum, stars) => sum + stars.length, 0);
+    let total = 0;
+    for (let i = 0; i < this.rating.length; i++) {
+      total += this.rating[i].length;
+    }
+    // const total = this.rating.reduce((sum, stars) => sum + stars.length, 0);
     return total / this.rating.length;
   },
 };
