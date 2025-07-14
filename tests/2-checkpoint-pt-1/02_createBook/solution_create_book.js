@@ -21,45 +21,14 @@ const bookPrototype = {
   },
 };
 
-//factory function
-function createBook(id, title, author, price, rating) {
-  const bookInstance = Object.create(bookPrototype);
-  bookInstance.id = id;
-  bookInstance.title = title;
-  bookInstance.author = author;
-  bookInstance.price = price;
-  bookInstance.rating = rating || [];
-  return bookInstance;
+
+function createBook(id,title,author,price,rating){
+  const book = Object.create(bookPrototype);
+  book.id = id;
+  book.title = title;
+  book.author = author;
+  book.price = price;
+  book.rating = [];
+  return book;
 }
 
-const book = createBook(1, "Catch 22", "Joseph Heller", 19.99);
-
-console.log(book.id);
-console.log(book.title);
-console.log(book.author);
-console.log(book.price);
-console.log(book.rating);
-
-const theCatInTheHat = createBook(3, "The Cat in the Hat", "Dr. Seuss", 1.99);
-
-console.log(typeof theCatInTheHat.getPrice());
-console.log(theCatInTheHat.getPrice());
-
-const goodnightMoon = createBook(
-  2,
-  "Goodnight Moon",
-  "Margaret Wise Brown",
-  14.99
-);
-console.log(typeof goodnightMoon.getInfo());
-console.log(goodnightMoon.getInfo());
-
-goodnightMoon.addRating("*****");
-goodnightMoon.addRating("***");
-goodnightMoon.addRating("*");
-goodnightMoon.addRating("****");
-goodnightMoon.addRating("**");
-
-console.log(goodnightMoon.rating);
-
-console.log(goodnightMoon.getRating());
