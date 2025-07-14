@@ -6,8 +6,6 @@ function soup(phrase, bank) {
 
   for (let char of words) {
     let index = bankWords.indexOf(char);
-    console.log(index + " : " + char);
-
     if (index === -1) return false; // char not found in bank
     bankWords.splice(index, 1);
   }
