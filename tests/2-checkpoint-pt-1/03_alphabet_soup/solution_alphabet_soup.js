@@ -13,10 +13,3 @@ function soup(phrase, bank) {
   }
   return true;
 }
-
-const phrase = "abb";
-const characterBank = "ab";
-
-console.log(soup(phrase, characterBank));
-console.log(soup("helloworld", "dlrowhlloeh")); // true
-console.log(soup("abcdefg", "abcd")); // false
