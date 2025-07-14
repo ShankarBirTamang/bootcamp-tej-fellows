@@ -50,24 +50,14 @@ const addSquareMethod = (arrInstances) => {
 };
 
 //********************** */
-const humanCalcPrototype = {
-  add(num) {
-    this.total += num;
-  },
-  subtract(num) {
-    this.total -= num;
-  },
-  value() {
-    return this.total;
-  },
-  clear() {
-    this.total = -10;
-  },
-};
+
 
 const createHumanCalculator = () => {
-  const humanCalc = Object.create(humanCalcPrototype);
+  const humanCalc = Object.create(createCalculator());
   humanCalc.total = -10;
+  humanCalc.__proto__.clear = function (){
+    humanCalc.total = -10;
+  }
 
   return humanCalc;
 };
