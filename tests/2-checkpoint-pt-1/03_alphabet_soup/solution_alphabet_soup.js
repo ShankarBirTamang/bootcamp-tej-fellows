@@ -2,7 +2,6 @@
 function soup(phrase, bank) {
   let words = phrase.split("");
   let bankWords = bank.split("");
-  console.log(bankWords);
 
   for (let char of words) {
     let index = bankWords.indexOf(char);
