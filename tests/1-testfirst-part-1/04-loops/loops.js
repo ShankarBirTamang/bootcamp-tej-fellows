@@ -65,14 +65,27 @@ const object = { f: 6, e: 5, d: 4, c: 3, b: 2, a: 1 };
 console.log(paramify(object));
 
 //Function 6:Same as paramify but uses Object.keys(obj) instead of for...in.
+// function paramifyObjectKeys(obj) {
+//   return Object.keys(obj)
+//     .map((key) => `${key}=${obj[key]}`)
+//     .sort()
+//     .join("&");
+// }
+// const object1 = { f: 6, e: 5, d: 4, c: 3, b: 2, a: 1 };
+// console.log(paramifyObjectKeys(object1));
+
 function paramifyObjectKeys(obj) {
-  return Object.keys(obj)
-    .map((key) => `${key}=${obj[key]}`)
-    .sort()
-    .join("&");
+  const result = [];
+  const keys = Object.keys(obj);
+  
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    result.push(`${key}=${obj[key]}`);
+  }
+
+  return result.sort().join("&");
 }
-const object1 = { f: 6, e: 5, d: 4, c: 3, b: 2, a: 1 };
-console.log(paramifyObjectKeys(object1));
+
 
 //Function 7 :Implementing a simple sorting algorithm (e.g., using selection sort) without using Array.prototype.sort.
 function sort(arr) {
