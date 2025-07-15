@@ -46,12 +46,4 @@ RPNCalculator.prototype.divide = function () {
   this.stack.push(a / b);
 };
 
-rpnCalculatorInstance = new RPNCalculator();
-console.log(rpnCalculatorInstance);
-rpnCalculatorInstance.push(8);
-rpnCalculatorInstance.push(3);
-// rpnCalculatorInstance.push(4);
-rpnCalculatorInstance.plus();
-rpnCalculatorInstance.minus();
-console.log(rpnCalculatorInstance);
-console.log(rpnCalculatorInstance.value());
+
