@@ -211,10 +211,6 @@ function simulateVanishingMan(secretWord) {
       const randomIndex = Math.floor(Math.random() * 26);
       const guess = char[randomIndex];
       game.submitGuess(guess);
-      console.log(game.lettersGuessed);
-      console.log("Remaining Guess : " + game.remainingGuesses);
-      console.log(game.getSecretWordPuzzle());
-
       return playVanishingMan();
     }
   }
