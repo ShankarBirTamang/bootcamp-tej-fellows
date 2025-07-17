@@ -85,16 +85,33 @@ class VanishingMan {
     }
   }
 
+  // getSecretWordPuzzle() {
+  //   return this.secretWord
+  //     .map((letter) => {
+  //       if (this.lettersGuessed.includes(letter) || letter === " ") {
+  //         return letter;
+  //       }
+  //       return "#";
+  //     })
+  //     .join("");
+  // }
+
   getSecretWordPuzzle() {
-    return this.secretWord
-      .map((letter) => {
-        if (this.lettersGuessed.includes(letter) || letter === " ") {
-          return letter;
-        }
-        return "#";
-      })
-      .join("");
+  let puzzle = "";
+
+  for (let i = 0; i < this.secretWord.length; i++) {
+    const letter = this.secretWord[i];
+
+    if (this.lettersGuessed.includes(letter) || letter === " ") {
+      puzzle += letter;
+    } else {
+      puzzle += "#";
+    }
   }
+
+  return puzzle;
+}
+
 
   getGameStateMessage() {
     if (this.gameState === "playing") {
