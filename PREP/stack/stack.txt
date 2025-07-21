@@ -1,0 +1,47 @@
+A stack is a data structure that follows the LIFO principle — Last In, First Out. 
+ Imagine a stack of plates: you add (push) plates on top and remove (pop) from the top.
+
+ Example:
+ let stack = [];
+
+// Push - add item on top
+stack.push(10);
+stack.push(20);
+stack.push(30);
+console.log(stack); // [10, 20, 30]
+
+// Pop - remove item from top
+let poppedItem = stack.pop();  //30
+
+
+// Peek - view the top item without removing it
+let top = stack[stack.length - 1];  //20
+
+
+// Check if stack is empty
+let isEmpty = stack.length === 0;  //false
+
+
+
+********************************************************************
+
+Given a string s containing just the characters ' (', ' ) *, '{', '}', ' [' and ']", determine if the
+input string is valid.
+
+An input string is valid if:
+1. Open brackets must be closed by the same type of brackets.
+2. Open brackets must be closed in the correct order.
+3. Every close bracket has a corresponding open bracket of the same type.
+
+
+Pseudo code : 
+1.Define Empty stack & hashMap ( key-> close brackets & mapValue -> open brackets)
+2. Visit every char of string
+    * we will check close brackets with open brackets
+    1. if open brackets : push in stack
+    2. if close brackets : use it as a key to get mapValue
+        * first pop element from Stack
+        * if the poppedElement is not equal to mapValue -> false
+    3. only if the stack is empty return true
+
+s="([{}])"; // true

@@ -1,11 +1,11 @@
 var isValid = function (s) {
-  debugger;
   let stack = [];
   let map = {
-    "]": "[",
-    "}": "{",
     ")": "(",
+    "}": "{",
+    "]": "[",
   };
+
   for (let char of s) {
     if (char === "(" || char === "{" || char === "[") {
       stack.push(char);
@@ -15,11 +15,12 @@ var isValid = function (s) {
       }
     }
   }
+
   return stack.length === 0;
 };
 
-console.log(isValid("()")); // true
-console.log(isValid("()[]{}")); // true
+console.log(isValid("([{}])")); // true
 console.log(isValid("(]")); // false
+console.log(isValid("()[]{}")); // true
 console.log(isValid("([)]")); // false
 console.log(isValid("{[]}")); // true
