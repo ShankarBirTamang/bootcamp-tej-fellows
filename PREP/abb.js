@@ -1,5 +1,4 @@
 function abbreviate(string) {
-  debugger;
   let result = "";
   let word = "";
 
