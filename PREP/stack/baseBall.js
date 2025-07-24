@@ -1,3 +1,26 @@
+/*
+ops = ["5","2","C","D","+"]
+
+Pseudo code : 
+1. empty stack | stack = []
+2. visit each op through for loop
+  i) if it is 'C' , remove the previous score | stack.pop()
+  ii) if it is 'D' , a new score = double the previous |stack.push(...)
+  iii) if it is '+' , a new score = sum of previous 2 score | stack.push(...)
+  iv) if it just a number | stack.push(...)
+3. sum all the scores and return
+
+
+
+
+
+
+
+
+
+
+
+*/
 function calPoints(ops) {
   const stack = [];
 
@@ -15,6 +38,8 @@ function calPoints(ops) {
       stack.push(parseInt(op));
     }
   }
-
   return stack.reduce((sum, score) => sum + score, 0);
 }
+
+ops = ["5", "2", "C", "D", "+"];
+calPoints(ops);

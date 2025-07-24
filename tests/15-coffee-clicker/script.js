@@ -1,5 +1,18 @@
 /* eslint-disable no-alert */
 
+// Add your localStorage functions here
+function storeToLocalStorage(data) {
+  localStorage.setItem("CoffeeCount", JSON.stringify(data));
+}
+
+function loadPreviousValue() {
+  const saved = localStorage.getItem("CoffeeCount");
+  if (saved) {
+    return JSON.parse(saved);
+  }
+  return null;
+}
+
 /**************
  *   SLICE 1
  **************/
@@ -13,6 +26,7 @@ function clickCoffee(data) {
   data.coffee += 1;
   updateCoffeeView(data.coffee);
   renderProducers(data);
+  storeToLocalStorage(data); // Save after clicking
 }
 
 /**************
@@ -127,6 +141,7 @@ function attemptToBuyProducer(data, producerId) {
   producer.qty += 1;
   producer.price = updatePrice(producer.price);
   data.totalCPS += producer.cps;
+  storeToLocalStorage(data); // Save after buying
   return true;
 }
 
@@ -149,6 +164,7 @@ function tick(data) {
   data.coffee += data.totalCPS;
   updateCoffeeView(data.coffee);
   renderProducers(data);
+  storeToLocalStorage(data); // Save after each tick
 }
 
 /*************************
@@ -166,9 +182,15 @@ function tick(data) {
 // How does this check work? Node gives us access to a global variable /// called `process`, but this variable is undefined in the browser. So,
 // we can see if we're in node by checking to see if `process` exists.
 if (typeof process === "undefined") {
-  // Get starting data from the window object
-  // (This comes from data.js)
-  const data = window.data;
+  // Load saved data or use default data
+  let data = loadPreviousValue() || window.data;
+
+  // If we loaded saved data, update the views
+  if (loadPreviousValue()) {
+    updateCoffeeView(data.coffee);
+    updateCPSView(data.totalCPS);
+    renderProducers(data);
+  }
 
   // Add an event listener to the giant coffee emoji
   const bigCoffee = document.getElementById("big_coffee");
