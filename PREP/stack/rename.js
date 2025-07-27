@@ -1,5 +1,4 @@
 function renameFiles(files) {
-  debugger;
   const nameCount = {};
   const result = [];
   for (const file of files) {

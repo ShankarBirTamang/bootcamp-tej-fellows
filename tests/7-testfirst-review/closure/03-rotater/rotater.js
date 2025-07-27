@@ -2,6 +2,7 @@
 function rotater(str) {
   let direction = 1;
   return function (rotations) {
+    debugger;
     if (rotations === str.length && str.length !== 0) {
       direction *= -1;
     }
@@ -19,3 +20,14 @@ function rotater(str) {
     return result;
   };
 }
+
+const rotate = rotater("abc");
+rotate(1);
+// ('bcdea'); // Note: rotate is invoked...NOT rotater
+rotate(2);
+// ('cdeab'); // Note: rotate is invoked...NOT rotater
+rotate(3);
+// ('deabc'); // Note: rotate is invoked...NOT rotater
+rotate(4);
+rotate(5);
+// ('eabcd'); // Note: rotate is invoked...NOT rotater
