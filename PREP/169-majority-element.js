@@ -1,17 +1,18 @@
 //simplest 4ms
 
-// var majorityElement = (nums) => {
-//   let count = {};
-//   let threshold = Math.floor(nums.length / 2);
+var majorityElement = (nums) => {
 
-//   for (let num of nums) {
-//     count[num] = (count[num] || 0) + 1;
-//     if (count[num] > threshold) {
-//       return num;
-//     }
-//   }
-//   return null;
-// };
+  let count = {};
+  let threshold = Math.floor(nums.length / 2);
+
+  for (let num of nums) {
+    count[num] = (count[num] || 0) + 1;
+    if (count[num] > threshold) {
+      return num;
+    }
+  }
+  return null;
+};
 
 //using MAP object  7ms
 // var majorityElement = (nums) => {
@@ -32,23 +33,22 @@
 //   let counts = {};
 //   let threshold = Math.floor(nums.length / 2);
 
-//   // Count occurrences
 //   for (let num of nums) {
 //     counts[num] = (counts[num] || 0) + 1;
 //   }
 
-//   // Find the element that appears more than n/2 times
 //   for (let num in counts) {
 //     if (counts[num] > threshold) {
-//       return Number(num); // keys in objects are strings, so convert back to number
+//       return Number(num);
 //     }
 //   }
 
-//   return null;
-// };
+  return null;
+};
 
 //Boyer-Moore Voting Algorithm
 var majorityElement = function (nums) {
+  debugger;
   let count = 0;
   let candidate = null;
 
